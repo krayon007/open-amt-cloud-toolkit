@@ -33,12 +33,14 @@ CREATE TABLE IF NOT EXISTS wirelessconfigs(
 CREATE TABLE IF NOT EXISTS tls(
   tls_config_name citext NOT NULL,
   common_name text NOT NULL,
+  issued_common_name text NOT NULL,
   organization text NOT NULL,
   state_province text NOT NULL,
   country text NOT NULL,
   is_trusted_cert BOOLEAN NOT NULL,
   tls_mode integer NOT NULL,
   tenant_id varchar(36) NOT NULL,
+  cert_version integer,
   PRIMARY KEY (tls_config_name, tenant_id)
 );
 CREATE TABLE IF NOT EXISTS profiles(
